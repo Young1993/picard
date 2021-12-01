@@ -54,7 +54,7 @@ def main() -> None:
         picard_args, model_args, data_args, data_training_args, training_args = parser.parse_dict(args=data)
     else:
         picard_args, model_args, data_args, data_training_args, training_args = parser.parse_args_into_dataclasses()
-    
+
     # If model_name_or_path includes ??? instead of the number of steps, 
     # we load the latest checkpoint.
     if 'checkpoint-???' in model_args.model_name_or_path:
@@ -113,6 +113,7 @@ def main() -> None:
     set_seed(training_args.seed)
 
     # Initialize config
+    print(model_args.config_name, model_args.cache_dir)
     config = AutoConfig.from_pretrained(
         model_args.config_name if model_args.config_name else model_args.model_name_or_path,
         cache_dir=model_args.cache_dir,
@@ -253,7 +254,7 @@ def main() -> None:
             logger.info("*** Predict ***")
             for section, test_split in dataset_splits.test_splits.items():
                 results = trainer.predict(
-                    test_split.dataset, 
+                    test_split.dataset,
                     test_split.examples,
                     max_length=data_training_args.val_max_target_length,
                     max_time=data_training_args.val_max_time,
