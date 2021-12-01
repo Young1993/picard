@@ -135,10 +135,10 @@ train_cosql: pull-train-image
 		/bin/bash -c "python seq2seq/run_seq2seq.py configs/train_cosql.json"
 
 .PHONY: eval
-eval: pull-eval-image
-	mkdir -p -m 777 eval
-	mkdir -p -m 777 transformers_cache
-	mkdir -p -m 777 wandb
+eval: #pull-eval-image
+# mkdir -p -m 777 eval
+# mkdir -p -m 777 transformers_cache
+# mkdir -p -m 777 wandb
 	docker run \
 		-it \
 		--rm \

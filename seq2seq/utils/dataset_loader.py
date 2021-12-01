@@ -45,7 +45,7 @@ def load_dataset(
         path=data_args.dataset_paths["spider"], cache_dir=model_args.cache_dir
     )
     _spider_metric: Callable[[], Metric] = lambda: datasets.load.load_metric(
-        path=data_args.metric_paths["spider"], config_name=data_args.metric_config, test_suite_db_dir=data_args.test_suite_db_dir
+        path=data_args.metric_paths["spider"], config_name=data_args. , test_suite_db_dir=data_args.test_suite_db_dir
     )
     _spider_add_serialized_schema = lambda ex: spider_add_serialized_schema(
         ex=ex,

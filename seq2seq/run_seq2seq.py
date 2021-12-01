@@ -140,6 +140,7 @@ def main() -> None:
         tokenizer.add_tokens([AddedToken(" <="), AddedToken(" <")])
 
     # Load dataset
+    print(f"data_args: {data_args}")
     metric, dataset_splits = load_dataset(
         data_args=data_args,
         model_args=model_args,
