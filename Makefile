@@ -168,9 +168,9 @@ eval_cosql: pull-eval-image
 		/bin/bash -c "python seq2seq/run_seq2seq.py configs/eval_cosql.json"
 
 .PHONY: serve
-serve: pull-eval-image
-	mkdir -p -m 777 database
-	mkdir -p -m 777 transformers_cache
+serve: #pull-eval-image
+#mkdir -p -m 777 database
+#mkdir -p -m 777 transformers_cache
 	docker run \
 		-it \
 		--rm \
