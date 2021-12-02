@@ -113,17 +113,10 @@ class Spider(datasets.GeneratorBasedBuilder):
             datasets.SplitGenerator(
                 name=datasets.Split.VALIDATION,
                 gen_kwargs={
-                    "data_filepaths": [downloaded_filepath + "/spider/join_dev.json"],
+                    "data_filepaths": [downloaded_filepath + "/spider/dev.json"],
                     "db_path": downloaded_filepath + "/spider/database",
                 },
             ),
-            # datasets.SplitGenerator(
-            #     name=datasets.Split.VALIDATION,
-            #     gen_kwargs={
-            #         "data_filepaths": [downloaded_filepath + "/spider/dev.json"],
-            #         "db_path": downloaded_filepath + "/spider/database",
-            #     },
-            # ),
         ]
 
     def _generate_examples(
