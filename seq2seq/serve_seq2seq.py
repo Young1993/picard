@@ -77,6 +77,7 @@ def main():
     )
 
     # Initialize tokenizer
+    print(backend_args.model_path, backend_args.cache_dir)
     tokenizer = AutoTokenizer.from_pretrained(
         backend_args.model_path,
         cache_dir=backend_args.cache_dir,
