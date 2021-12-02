@@ -1,5 +1,5 @@
 {
-    "model_path": "tscholak/1wnr382e",
+    "model_path": "/app/t5_large",
     "source_prefix": "",
     "schema_serialization_type": "peteshaw",
     "schema_serialization_randomized": false,
