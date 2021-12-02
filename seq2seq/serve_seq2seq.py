@@ -80,7 +80,7 @@ def main():
     print(backend_args.model_path, backend_args.cache_dir)
     tokenizer = AutoTokenizer.from_pretrained(
         backend_args.model_path,
-        cache_dir=backend_args.cache_dir,
+        # cache_dir=backend_args.cache_dir,
         use_fast=True,
     )
 
@@ -98,7 +98,7 @@ def main():
         model = model_cls_wrapper(AutoModelForSeq2SeqLM).from_pretrained(
             backend_args.model_path,
             config=config,
-            cache_dir=backend_args.cache_dir,
+            # cache_dir=backend_args.cache_dir,
         )
 
         # Initalize generation pipeline
