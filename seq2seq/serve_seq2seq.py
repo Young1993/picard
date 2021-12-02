@@ -23,7 +23,7 @@ from sqlite3 import connect, OperationalError
 from seq2seq.utils.pipeline import Text2SQLGenerationPipeline, Text2SQLInput, get_schema
 from seq2seq.utils.picard_model_wrapper import PicardArguments, PicardLauncher, with_picard
 from seq2seq.utils.dataset import DataTrainingArguments
-
+import torch
 
 @dataclass
 class BackendArguments:
@@ -145,4 +145,5 @@ def main():
 
 
 if __name__ == "__main__":
+    print(f"cuda is available: {torch.cuda.is_available()}")
     main()
