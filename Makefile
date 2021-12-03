@@ -170,7 +170,7 @@ eval_cosql: pull-eval-image
 .PHONY: serve
 serve: pull-eval-image
 #mkdir -p -m 777 database
-	mkdir -p -m 777 transformers_cache
+#mkdir -p -m 777 transformers_cache
 	docker run \
 		-it \
 		--rm \
@@ -179,7 +179,6 @@ serve: pull-eval-image
 		--mount type=bind,source=$(BASE_DIR)/spider/database,target=/database \
 		--mount type=bind,source=$(BASE_DIR)/transformers_cache,target=/transformers_cache \
 		--mount type=bind,source=$(BASE_DIR)/configs,target=/app/configs \
-		--mount type=bind,source=$(BASE_DIR)/t5_large,target=/t5_large \
 		--mount type=bind,source=$(BASE_DIR)/seq2seq/datasets/spider/spider.py,target=/app/seq2seq/datasets/spider/spider.py \
 		--mount type=bind,source=$(BASE_DIR)/seq2seq/serve_seq2seq.py,target=/app/seq2seq/serve_seq2seq.py \
 		tscholak/$(EVAL_IMAGE_NAME):$(GIT_HEAD_REF) \
