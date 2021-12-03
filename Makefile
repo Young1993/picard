@@ -168,9 +168,9 @@ eval_cosql: pull-eval-image
 		/bin/bash -c "python seq2seq/run_seq2seq.py configs/eval_cosql.json"
 
 .PHONY: serve
-serve: #pull-eval-image
+serve: pull-eval-image
 #mkdir -p -m 777 database
-#mkdir -p -m 777 transformers_cache
+	mkdir -p -m 777 transformers_cache
 	docker run \
 		-it \
 		--rm \
@@ -183,6 +183,4 @@ serve: #pull-eval-image
 		--mount type=bind,source=$(BASE_DIR)/seq2seq/datasets/spider/spider.py,target=/app/seq2seq/datasets/spider/spider.py \
 		--mount type=bind,source=$(BASE_DIR)/seq2seq/serve_seq2seq.py,target=/app/seq2seq/serve_seq2seq.py \
 		tscholak/$(EVAL_IMAGE_NAME):$(GIT_HEAD_REF) \
-		/bin/bash -c "nvidia-smi"
-		/bin/bash -c "nvcc -V"
 		/bin/bash -c "python seq2seq/serve_seq2seq.py configs/serve.json"
